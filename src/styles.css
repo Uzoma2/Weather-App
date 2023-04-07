@@ -1,11 +1,12 @@
-body {
-  font-family: sans-serif;
+/*RESET*/
+* {
+  margin: 0;
+  padding: 0;
 }
 
-footer {
-  text-align: center;
-  margin-top: 10px;
-  font-size: 13px;
+/*BASE STYLES*/
+body {
+  font-family: sans-serif;
 }
 
 .wrap {
@@ -114,6 +115,18 @@ footer {
   font-weight: 400;
   color: rgb(39, 35, 35);
 }
+
+/*FOOTER*/
+
+.footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 13px;
+  display: flex;
+  justify-content: space-between;
+}
 .footerlink {
   color: #fbbc04;
+  font-style: italic;
+  text-decoration: none;
 }
