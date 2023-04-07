@@ -1,0 +1,119 @@
+body {
+  font-family: sans-serif;
+}
+
+footer {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+.wrap {
+  padding: 30px;
+  margin: 30px auto;
+  background-image: linear-gradient(
+      to bottom,
+      #33332e80,
+      rgba(218, 218, 243, 0.5)
+    ),
+    url("https://c1.wallpaperflare.com/preview/804/778/325/sky-background-nature-blue.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  max-width: 750px;
+}
+
+.city-suggestions {
+  margin-bottom: 10px;
+  color: #fbbc04;
+}
+.search-current-wrap {
+  display: flex;
+  justify-content: space-between;
+  max-width: 100%;
+}
+
+.search-form {
+  width: 90%;
+}
+.btn-warning {
+  background-color: #fbbc04;
+  color: #ffffff !important;
+  border: 1px solid #fbbc04 !important;
+  border-radius: 10px !important;
+  padding: 8px 10px;
+  transition: all 300ms ease-in-out;
+  box-shadow: 3px 3px 5px rgba(77, 63, 63, 0.3);
+}
+.btn-warning:hover {
+  background-color: #ffffff !important;
+  color: #fbbc04 !important;
+  cursor: pointer !important;
+}
+
+.temp-today-row {
+  display: flex;
+  margin-top: 20px;
+}
+.temp-today h3 {
+  font-weight: 400;
+  color: rgb(39, 35, 35);
+  margin: 0;
+  font-size: 18px;
+}
+
+.current-city {
+  text-transform: capitalize;
+}
+.weather-description {
+  text-transform: capitalize;
+}
+.fahrenheit-link,
+.celcius-link {
+  text-decoration: none;
+  color: rgb(39, 35, 35);
+}
+.weathertypes {
+  padding-top: 50px;
+  text-align: right;
+}
+.weathertypes h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 400;
+  color: rgb(39, 35, 35);
+}
+.weathertypes-links {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.weathertypes-links h5 {
+  display: inline;
+}
+.weathertypes-links a {
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 400;
+  color: rgb(39, 35, 35);
+}
+.weathertypes-links a:hover {
+  border-bottom: 3px solid #fbbc04;
+  cursor: pointer;
+  padding-bottom: 2px;
+}
+
+.temp-days .day {
+  text-align: center;
+}
+.temp-days .day h3 {
+  font-weight: 500;
+  font-size: 20px;
+}
+.temp-days .temp {
+  font-size: 15px;
+  font-weight: 400;
+  color: rgb(39, 35, 35);
+}
+.footerlink {
+  color: #fbbc04;
+}
