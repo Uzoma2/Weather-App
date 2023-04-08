@@ -1,28 +1,30 @@
-let now = new Date();
+//Date function
+function formatDate(timestamp) {
+  let now = new Date(timestamp);
 
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
 
-let day = days[now.getDay()];
-let hours = now.getHours();
-let minutes = now.getMinutes();
-if (minutes < 10) {
-  minutes = `0${minutes}`;
+  let day = days[now.getDay()];
+  let hours = now.getHours();
+  let minutes = now.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  return ` ${day}, ${hours}:${minutes} `;
 }
-if (hours < 10) {
-  hours = `0${hours}`;
-}
-let currentdate = document.querySelector(".current-day-time");
-currentdate.innerHTML = `${day}, ${hours}:${minutes}`;
 
-//Search temperature by city
+//Search temperature,day and time by city
 
 function displayApiTemperature(response) {
   let currentCity = document.querySelector(".current-city");
@@ -37,6 +39,8 @@ function displayApiTemperature(response) {
   weatherDescription.innerHTML = response.data.weather[0].description;
   humidityNumber.innerHTML = response.data.main.humidity;
   windNumber.innerHTML = Math.round(response.data.wind.speed);
+  let currentdate = document.querySelector(".current-day-time");
+  currentdate.innerHTML = formatDate(response.data.dt * 1000);
 }
 
 function search(city) {
