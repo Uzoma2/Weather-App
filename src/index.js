@@ -83,11 +83,19 @@ function displaylatlonTemperature(response) {
   weatherDescription.innerHTML = response.data.weather[0].description;
   humidityNumber.innerHTML = `${humidity}`;
   windNumber.innerHTML = `${wind}`;
+  let currentdate = document.querySelector(".current-day-time");
+  currentdate.innerHTML = formatDate(response.data.dt * 1000);
+  let weatherIcon = document.querySelector(".weather-icon");
+  let weatherIconUrl = response.data.weather[0].icon;
+
+  weatherIcon.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${weatherIconUrl}@2x.png`
+  );
 }
 function showPosition(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
-
   let apiKey = "3594d555e3732aed8439d60b3c8232b2";
   let apiUrl = "https://api.openweathermap.org/data/2.5/weather?";
   axios
@@ -102,3 +110,22 @@ function displayCurrentCityTemp() {
 
 let currentButton = document.querySelector(".current-btn");
 currentButton.addEventListener("click", displayCurrentCityTemp);
+
+//Handle City Suggestions click
+function handleClick(event) {
+  event.preventDefault();
+  let clickedCity = event.target.innerHTML;
+  if (clickedCity === "Abuja") {
+    search("Abuja");
+  } else if (clickedCity === "Lagos") {
+    search("Lagos");
+  } else if (clickedCity === "Onitsha") {
+    search("Onitsha");
+  } else if (clickedCity === "Accra") {
+    search("Accra");
+  } else if (clickedCity === "Lisbon") {
+    search("Lisbon");
+  }
+}
+let citySuggestions = document.querySelector(".city-suggestions");
+citySuggestions.addEventListener("click", handleClick);
