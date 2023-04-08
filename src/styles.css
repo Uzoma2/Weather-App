@@ -131,6 +131,8 @@ body {
   display: flex;
   align-items: center;
   column-gap: 4px;
+  height: 50px;
+  transform: translateX(-15px);
 }
 .current-temp-number {
   font-weight: 600;

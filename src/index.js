@@ -41,6 +41,13 @@ function displayApiTemperature(response) {
   windNumber.innerHTML = Math.round(response.data.wind.speed);
   let currentdate = document.querySelector(".current-day-time");
   currentdate.innerHTML = formatDate(response.data.dt * 1000);
+  let weatherIcon = document.querySelector(".weather-icon");
+  let weatherIconUrl = response.data.weather[0].icon;
+
+  weatherIcon.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${weatherIconUrl}@2x.png`
+  );
 }
 
 function search(city) {
