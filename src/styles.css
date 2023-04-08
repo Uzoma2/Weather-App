@@ -127,6 +127,11 @@ body {
   margin-bottom: 0;
   font-weight: 400;
 }
+.weather-icon-link-wrap {
+  display: flex;
+  align-items: center;
+  column-gap: 4px;
+}
 .current-temp-number {
   font-weight: 600;
   color: var(--darker-grey);
