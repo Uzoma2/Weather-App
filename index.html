@@ -4,12 +4,7 @@
     <title>Weather Application</title>
     <meta charset="UTF-8" />
     <link href="src/styles.css" rel="stylesheet" type="text/css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
-      crossorigin="anonymous"
-    />
+
     <script
       src="https://kit.fontawesome.com/06635d73a1.js"
       crossorigin="anonymous"
@@ -18,117 +13,111 @@
   </head>
 
   <body>
-    <div class="container">
-      <div class="wrap rounded-4">
-        <div class="row city-suggestions p-2">
-          <div class="col-auto">Abuja</div>
-          <div class="col-auto">Lagos</div>
-          <div class="col-auto">Onitsha</div>
-          <div class="col-auto">Accra</div>
-          <div class="col-auto">Lisbon</div>
-        </div>
-        <div class="p-2 search-current-wrap">
-          <form class="row search-form">
-            <div class="col">
-              <input
-                type="search"
-                class="form-control city-input"
-                id="inputPassword2"
-                placeholder="City"
-              />
-            </div>
-            <div class="col-auto">
-              <input
-                type="submit"
-                class="btn btn-warning search"
-                value="Search"
-              />
-            </div>
-          </form>
-          <div class="col-auto current-btn">
+    <div class="wrap">
+      <header class="header">
+        <section class="city-suggestions">
+          <a href="">Abuja</a>
+          <a href="">Lagos</a>
+          <a href="">Onitsha</a>
+          <a href="">Accra</a>
+          <a href="">Lisbon</a>
+        </section>
+        <div class="search-current-wrap">
+          <form class="search-form">
             <input
-              type="submit"
-              class="btn btn-warning search"
-              value="Current"
+              type="search"
+              class="city-input"
+              id="inputPassword2"
+              placeholder="City"
             />
+
+            <input type="submit" class="btn-warning" value="Search" />
+          </form>
+          <div class="current-btn">
+            <input type="submit" class="btn-warning" value="Current" />
           </div>
         </div>
+      </header>
+      <main class="main">
         <div class="temp-today-row">
-          <div class="col-6 temp-today">
+          <div class="temp-today">
             <h1 class="current-city">Abuja</h1>
             <h3 class="current-day-time"></h3>
             <h3 class="weather-description">Partially cloudy</h3>
             <h2>
               ⛅ <span class="current-temp-number">30</span
-              ><a href="" class="celcius-link">°C</a>|<a
-                href=""
-                class="fahrenheit-link"
-                >°F</a
+              ><span class="units"
+                ><a href="" class="celcius-link">°C</a>|<a
+                  href=""
+                  class="fahrenheit-link"
+                  >°F</a
+                ></span
               >
             </h2>
           </div>
-          <div class="col-6 weathertypes">
+          <div class="weathertypes">
             <h3>Humidity: <span class="humidity-number">41</span>%</h3>
             <h3>Wind: <span class="wind-number">11</span>km/h</h3>
           </div>
         </div>
         <div class="weathertypes-links">
-          <h5><a class="border-end px-2" href="">Temperature</a></h5>
+          <h5><a class="weathertypes-links-item" href="">Temperature</a></h5>
 
-          <h5><a class="px-2" href="">Wind</a></h5>
+          <h5><a class="weathertypes-links-item" href="">Wind</a></h5>
         </div>
-        <div class="row temp-days">
-          <div class="col day">
+        <div class="temp-days">
+          <div class="day">
             <h3>Mon</h3>
             <h1>⛅</h1>
             <h5 class="temp">38°24°</h5>
           </div>
-          <div class="col day">
+          <div class="day">
             <h3>Tue</h3>
             <h1>⛅</h1>
             <h5 class="temp">38°24°</h5>
           </div>
-          <div class="col day">
+          <div class="day">
             <h3>Wed</h3>
             <h1>⛅</h1>
             <h5 class="temp">38°24°</h5>
           </div>
-          <div class="col day">
+          <div class="day">
             <h3>Thur</h3>
             <h1>⛅</h1>
             <h5 class="temp">38°24°</h5>
           </div>
-          <div class="col day">
+          <div class="day">
             <h3>Fri</h3>
             <h1>⛅</h1>
             <h5 class="temp">38°24°</h5>
           </div>
-          <div class="col day">
+          <div class="day">
             <h3>Sat</h3>
             <h1>⛅</h1>
             <h5 class="temp">38°24°</h5>
           </div>
         </div>
-        <footer class="footer">
-          <p>
-            Page was built by
+      </main>
+      <footer class="footer">
+        <p>
+          Page was built by
 
-            <a
-              href="https://www.linkedin.com/in/uzoma-udeagwu"
-              class="footerlink"
-              target="_blank"
-              >Uzoma Udeagwu</a
-            >
-          </p>
           <a
-            href="https://github.com/Uzoma2/Weather-App"
+            href="https://www.linkedin.com/in/uzoma-udeagwu"
             class="footerlink"
             target="_blank"
-            >Open Source Code</a
+            >Uzoma Udeagwu</a
           >
-        </footer>
-      </div>
+        </p>
+        <a
+          href="https://github.com/Uzoma2/Weather-App"
+          class="footerlink"
+          target="_blank"
+          >Open Source Code</a
+        >
+      </footer>
     </div>
+
     <script src="src/index.js"></script>
   </body>
 </html>

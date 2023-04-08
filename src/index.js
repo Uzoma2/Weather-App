@@ -22,6 +22,8 @@ if (hours < 10) {
 let currentdate = document.querySelector(".current-day-time");
 currentdate.innerHTML = `${day}, ${hours}:${minutes}`;
 
+//Search temperature by city
+
 function displayApiTemperature(response) {
   let currentCity = document.querySelector(".current-city");
 
@@ -55,7 +57,7 @@ form.addEventListener("submit", handleSubmit);
 
 search("Abuja");
 
-//Current temperature display
+//Temperature for current location
 function displaylatlonTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
   let humidity = response.data.main.humidity;
