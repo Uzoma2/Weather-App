@@ -29,7 +29,7 @@ body {
 .wrap {
   padding: 30px;
   margin: 40px auto;
-  height: 75vh;
+  height: 90vh;
   background-image: linear-gradient(
       to bottom,
       #33332e80,
@@ -41,6 +41,7 @@ body {
   max-width: 750px;
   border: 1px solid var(--accent);
   border-radius: 10px;
+  box-shadow: 10px 5px 15px rgb(168, 164, 164);
 }
 /*HEADER*/
 .header {
@@ -124,15 +125,23 @@ body {
 .weather-description {
   text-transform: capitalize;
   color: var(--grey);
-  margin-bottom: 0;
+  margin-bottom: 10px;
   font-weight: 400;
 }
 .weather-icon-link-wrap {
   display: flex;
   align-items: center;
-  column-gap: 4px;
+  column-gap: 18px;
   height: 50px;
-  transform: translateX(-15px);
+  transform: translateX(0);
+}
+.weather-icon {
+  height: 70px;
+  width: 70px;
+  object-fit: cover;
+}
+.weather-icon-link-wrap h2 {
+  transform: translateX(-16px);
 }
 .current-temp-number {
   font-weight: 600;

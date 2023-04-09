@@ -44,10 +44,7 @@ function displayApiTemperature(response) {
   let weatherIcon = document.querySelector(".weather-icon");
   let weatherIconUrl = response.data.weather[0].icon;
 
-  weatherIcon.setAttribute(
-    "src",
-    `https://openweathermap.org/img/wn/${weatherIconUrl}@2x.png`
-  );
+  weatherIcon.setAttribute("src", `images/${weatherIconUrl}.png`);
 }
 
 function search(city) {
@@ -88,10 +85,7 @@ function displaylatlonTemperature(response) {
   let weatherIcon = document.querySelector(".weather-icon");
   let weatherIconUrl = response.data.weather[0].icon;
 
-  weatherIcon.setAttribute(
-    "src",
-    `https://openweathermap.org/img/wn/${weatherIconUrl}@2x.png`
-  );
+  weatherIcon.setAttribute("src", `images/${weatherIconUrl}.png`);
 }
 function showPosition(position) {
   let latitude = position.coords.latitude;
