@@ -137,8 +137,8 @@ body {
 }
 .weather-icon {
   height: 70px;
-  width: 70px;
-  object-fit: cover;
+  width: 100px;
+  object-fit: contain;
 }
 .weather-icon-link-wrap h2 {
   transform: translateX(-16px);
@@ -158,6 +158,18 @@ body {
 .fahrenheit-link,
 .celcius-link {
   color: var(--grey);
+}
+
+.displayed-unit {
+}
+
+.displayed-unit:hover {
+  cursor: default;
+}
+.not-displayed-unit {
+  color: var(--accent);
+}
+.not-displayed-unit:hover {
 }
 .weathertypes {
   padding-top: 80px;

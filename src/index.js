@@ -28,14 +28,13 @@ function formatDate(timestamp) {
 
 function displayApiTemperature(response) {
   let currentCity = document.querySelector(".current-city");
-
-  let temperature = Math.round(response.data.main.temp);
+  celciusTemperature = Math.round(response.data.main.temp); //No need to create with `let` since it is a global variable
   let currentTempNumber = document.querySelector(".current-temp-number");
   let weatherDescription = document.querySelector(".weather-description");
   let humidityNumber = document.querySelector(".humidity-number");
   let windNumber = document.querySelector(".wind-number");
   currentCity.innerHTML = response.data.name;
-  currentTempNumber.innerHTML = `${temperature}`;
+  currentTempNumber.innerHTML = `${celciusTemperature}`;
   weatherDescription.innerHTML = response.data.weather[0].description;
   humidityNumber.innerHTML = response.data.main.humidity;
   windNumber.innerHTML = Math.round(response.data.wind.speed);
@@ -111,10 +110,10 @@ function handleClick(event) {
   let clickedCity = event.target.innerHTML;
   if (clickedCity === "Abuja") {
     search("Abuja");
-  } else if (clickedCity === "Lagos") {
-    search("Lagos");
-  } else if (clickedCity === "Onitsha") {
-    search("Onitsha");
+  } else if (clickedCity === "Quebec City") {
+    search("Quebec City");
+  } else if (clickedCity === "Cairo") {
+    search("Cairo");
   } else if (clickedCity === "Accra") {
     search("Accra");
   } else if (clickedCity === "Lisbon") {
@@ -123,3 +122,29 @@ function handleClick(event) {
 }
 let citySuggestions = document.querySelector(".city-suggestions");
 citySuggestions.addEventListener("click", handleClick);
+
+//Celcius and Fahrenheit Conversions and toggling between links
+function convertToFahrenheit(event) {
+  event.preventDefault();
+  let currentTempNumber = document.querySelector(".current-temp-number");
+  let fahrenheitTemperature = Math.round(celciusTemperature * 1.8 + 32);
+  currentTempNumber.innerHTML = fahrenheitTemperature;
+  fahrenheitLink.classList.remove("not-displayed-unit");
+  celciusLink.classList.add("not-displayed-unit");
+}
+
+function convertToCelsius(event) {
+  event.preventDefault();
+  let currentTempNumber = document.querySelector(".current-temp-number");
+  currentTempNumber.innerHTML = celciusTemperature;
+  celciusLink.classList.remove("not-displayed-unit");
+  fahrenheitLink.classList.add("not-displayed-unit");
+}
+
+let celciusTemperature = null; //Making this a global variable so it can be used inside functions,since the api temperature is needed
+
+let fahrenheitLink = document.querySelector(".fahrenheit-link");
+fahrenheitLink.addEventListener("click", convertToFahrenheit);
+
+let celciusLink = document.querySelector(".celcius-link");
+celciusLink.addEventListener("click", convertToCelsius);
