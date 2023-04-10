@@ -29,8 +29,11 @@ function formatDate(timestamp) {
 function getForecast(coordinates){
 let apiKey = "72bb9dab46b9ec3d65f423c63f27a9b8";
 let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
-console.log(apiUrl);
+
+axios.get(apiUrl).then(displayForecast);
 }
+
+
 function displayApiTemperature(response) {
   let currentCity = document.querySelector(".current-city");
   celciusTemperature = Math.round(response.data.main.temp); //No need to create with `let` since it is a global variable
@@ -157,28 +160,37 @@ let celciusLink = document.querySelector(".celcius-link");
 celciusLink.addEventListener("click", convertToCelsius);
 
 //Display forecast temperature
+function formatDtApi(timestamp){
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  
+  let days = ["Sun", "Mon","Tue","Wed","Thur","Fri","Sat"];
+  return days[day];
+}
+function displayForecast(response) {
+  let forecastApi = response.data.daily;
 
-function displayForecast() {
   let forecastEl = document.querySelector(".forecast");
   let forecastHTML = "";
-  let days = ["Mon", "Tue", "Wed", "Thurs", "Fri"];
-  days.forEach(function (day) {
+
+ forecastApi.forEach(function (forecastDay,index) {
+  if (index < 6){
     forecastHTML = forecastHTML +`<div class="day">
-            <h3>${day}</h3>
+            <h3>${formatDtApi(forecastDay.dt)}</h3>
             <img
-              src="https://melodic-fairy-565514.netlify.app/images/02d.png"
+              src="images/${forecastDay.weather[0].icon}.png"
               alt=""
-              width="42px"
-              class=""
+              class="forecast-icon"
             />
             <h5 class="temp">
-              <span class="temp-max">38°</span>
-              <span class="temp-min"> 24°</span>
+              <span class="temp-max">${Math.round(forecastDay.temp.max)}°</span>
+              <span class="temp-min">${Math.round(forecastDay.temp.min)}°</span>
             </h5>
           </div>`;
+  };
   });
   forecastEl.innerHTML = forecastHTML;
 }
-displayForecast();
+
 
          

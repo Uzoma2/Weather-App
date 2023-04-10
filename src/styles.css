@@ -185,14 +185,17 @@ body {
   text-align: center;
   margin-top: 20px;
   margin-bottom: 20px;
+  display:flex;
+  justify-content:center;
 }
-.weathertypes-links h5 {
-  display: inline;
+.one {
+ border-right: 1px solid rgba(218, 218, 200, 0.7);
 }
 .weathertypes-links a {
   font-size: 15px;
   font-weight: 400;
   color: rgb(39, 35, 35);
+  padding:0 10px;
 }
 .weathertypes-links a:hover {
   border-bottom: 3px solid var(--accent);
@@ -216,17 +219,28 @@ body {
   font-weight: 400;
   color: rgb(39, 35, 35);
 }
-
+.temp-min {
+  font-size: 15px;
+  font-weight: 400;
+  color: rgb(39, 35, 35, 0.7);
+}
+.forecast-icon{
+height: 70px;
+  width: 100px;
+  object-fit: contain;
+}
 /*FOOTER*/
 
 .footer {
   text-align: center;
-  margin-top: 40px;
+  margin-top: 30px;
   font-size: 13px;
   display: flex;
   justify-content: space-between;
+ 
 }
 .footerlink {
   color: var(--accent);
   font-style: italic;
+  background-color: rgba(218, 218, 200, 0.7);
 }
