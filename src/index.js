@@ -24,8 +24,13 @@ function formatDate(timestamp) {
   return ` ${day}, ${hours}:${minutes} `;
 }
 
-//Search temperature,day and time by city
 
+//Search temperature,day and time by city
+function getForecast(coordinates){
+let apiKey = "72bb9dab46b9ec3d65f423c63f27a9b8";
+let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+console.log(apiUrl);
+}
 function displayApiTemperature(response) {
   let currentCity = document.querySelector(".current-city");
   celciusTemperature = Math.round(response.data.main.temp); //No need to create with `let` since it is a global variable
@@ -44,6 +49,8 @@ function displayApiTemperature(response) {
   let weatherIconUrl = response.data.weather[0].icon;
 
   weatherIcon.setAttribute("src", `images/${weatherIconUrl}.png`);
+
+  getForecast(response.data.coord);
 }
 
 function search(city) {
@@ -148,3 +155,30 @@ fahrenheitLink.addEventListener("click", convertToFahrenheit);
 
 let celciusLink = document.querySelector(".celcius-link");
 celciusLink.addEventListener("click", convertToCelsius);
+
+//Display forecast temperature
+
+function displayForecast() {
+  let forecastEl = document.querySelector(".forecast");
+  let forecastHTML = "";
+  let days = ["Mon", "Tue", "Wed", "Thurs", "Fri"];
+  days.forEach(function (day) {
+    forecastHTML = forecastHTML +`<div class="day">
+            <h3>${day}</h3>
+            <img
+              src="https://melodic-fairy-565514.netlify.app/images/02d.png"
+              alt=""
+              width="42px"
+              class=""
+            />
+            <h5 class="temp">
+              <span class="temp-max">38°</span>
+              <span class="temp-min"> 24°</span>
+            </h5>
+          </div>`;
+  });
+  forecastEl.innerHTML = forecastHTML;
+}
+displayForecast();
+
+         
