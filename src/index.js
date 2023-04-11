@@ -24,19 +24,17 @@ function formatDate(timestamp) {
   return ` ${day}, ${hours}:${minutes} `;
 }
 
-
 //Search temperature,day and time by city
-function getForecast(coordinates){
-let apiKey = "72bb9dab46b9ec3d65f423c63f27a9b8";
-let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+function getForecast(coordinates) {
+  let apiKey = "72bb9dab46b9ec3d65f423c63f27a9b8";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
 
-axios.get(apiUrl).then(displayForecast);
+  axios.get(apiUrl).then(displayForecast);
 }
-
 
 function displayApiTemperature(response) {
   let currentCity = document.querySelector(".current-city");
-  celciusTemperature = Math.round(response.data.main.temp); //No need to create with `let` since it is a global variable
+  let celciusTemperature = Math.round(response.data.main.temp);
   let currentTempNumber = document.querySelector(".current-temp-number");
   let weatherDescription = document.querySelector(".weather-description");
   let humidityNumber = document.querySelector(".humidity-number");
@@ -133,38 +131,12 @@ function handleClick(event) {
 let citySuggestions = document.querySelector(".city-suggestions");
 citySuggestions.addEventListener("click", handleClick);
 
-//Celcius and Fahrenheit Conversions and toggling between links
-function convertToFahrenheit(event) {
-  event.preventDefault();
-  let currentTempNumber = document.querySelector(".current-temp-number");
-  let fahrenheitTemperature = Math.round(celciusTemperature * 1.8 + 32);
-  currentTempNumber.innerHTML = fahrenheitTemperature;
-  fahrenheitLink.classList.remove("not-displayed-unit");
-  celciusLink.classList.add("not-displayed-unit");
-}
-
-function convertToCelsius(event) {
-  event.preventDefault();
-  let currentTempNumber = document.querySelector(".current-temp-number");
-  currentTempNumber.innerHTML = celciusTemperature;
-  celciusLink.classList.remove("not-displayed-unit");
-  fahrenheitLink.classList.add("not-displayed-unit");
-}
-
-let celciusTemperature = null; //Making this a global variable so it can be used inside functions,since the api temperature is needed
-
-let fahrenheitLink = document.querySelector(".fahrenheit-link");
-fahrenheitLink.addEventListener("click", convertToFahrenheit);
-
-let celciusLink = document.querySelector(".celcius-link");
-celciusLink.addEventListener("click", convertToCelsius);
-
 //Display forecast temperature
-function formatDtApi(timestamp){
+function formatDtApi(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
-  
-  let days = ["Sun", "Mon","Tue","Wed","Thur","Fri","Sat"];
+
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
   return days[day];
 }
 function displayForecast(response) {
@@ -173,9 +145,11 @@ function displayForecast(response) {
   let forecastEl = document.querySelector(".forecast");
   let forecastHTML = "";
 
- forecastApi.forEach(function (forecastDay,index) {
-  if (index < 6){
-    forecastHTML = forecastHTML +`<div class="day">
+  forecastApi.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="day">
             <h3>${formatDtApi(forecastDay.dt)}</h3>
             <img
               src="images/${forecastDay.weather[0].icon}.png"
@@ -187,10 +161,7 @@ function displayForecast(response) {
               <span class="temp-min">${Math.round(forecastDay.temp.min)}°</span>
             </h5>
           </div>`;
-  };
+    }
   });
   forecastEl.innerHTML = forecastHTML;
 }
-
-
-         

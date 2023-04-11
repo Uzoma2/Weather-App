@@ -155,22 +155,7 @@ body {
   top: -10px;
   color: var(--grey);
 }
-.fahrenheit-link,
-.celcius-link {
-  color: var(--grey);
-}
 
-.displayed-unit {
-}
-
-.displayed-unit:hover {
-  cursor: default;
-}
-.not-displayed-unit {
-  color: var(--accent);
-}
-.not-displayed-unit:hover {
-}
 .weathertypes {
   padding-top: 80px;
   text-align: right;
@@ -181,31 +166,11 @@ body {
   font-weight: 400;
   color: rgb(39, 35, 35);
 }
-.weathertypes-links {
-  text-align: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  display:flex;
-  justify-content:center;
-}
-.one {
- border-right: 1px solid rgba(218, 218, 200, 0.7);
-}
-.weathertypes-links a {
-  font-size: 15px;
-  font-weight: 400;
-  color: rgb(39, 35, 35);
-  padding:0 10px;
-}
-.weathertypes-links a:hover {
-  border-bottom: 3px solid var(--accent);
-  cursor: pointer;
-  padding-bottom: 2px;
-}
+
 .forecast {
   display: flex;
   justify-content: space-around;
-  margin-top: 30px;
+  margin-top: 50px;
 }
 .forecast .day {
   text-align: center;
@@ -224,8 +189,8 @@ body {
   font-weight: 400;
   color: rgb(39, 35, 35, 0.7);
 }
-.forecast-icon{
-height: 70px;
+.forecast-icon {
+  height: 70px;
   width: 100px;
   object-fit: contain;
 }
@@ -237,7 +202,6 @@ height: 70px;
   font-size: 13px;
   display: flex;
   justify-content: space-between;
- 
 }
 .footerlink {
   color: var(--accent);
