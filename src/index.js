@@ -93,6 +93,7 @@ function displaylatlonTemperature(response) {
   let weatherIconUrl = response.data.weather[0].icon;
 
   weatherIcon.setAttribute("src", `images/${weatherIconUrl}.png`);
+  getForecast(response.data.coord);
 }
 function showPosition(position) {
   let latitude = position.coords.latitude;
@@ -116,10 +117,10 @@ currentButton.addEventListener("click", displayCurrentCityTemp);
 function handleClick(event) {
   event.preventDefault();
   let clickedCity = event.target.innerHTML;
-  if (clickedCity === "Abuja") {
-    search("Abuja");
-  } else if (clickedCity === "Quebec City") {
-    search("Quebec City");
+  if (clickedCity === "Jos") {
+    search("Jos");
+  } else if (clickedCity === "Quebec") {
+    search("Quebec");
   } else if (clickedCity === "Cairo") {
     search("Cairo");
   } else if (clickedCity === "Accra") {
